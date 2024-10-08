@@ -1,0 +1,33 @@
+spring:
+  application:
+    name: hellospringhomework
+  datasource:
+    url: jdbc:oracle:thin:@localhost:1521:XE
+    driver-class-name: oracle.jdbc.driver.OracleDriver
+    username: SPRING_BOOT
+    password: 1234
+# JSP 를 사용하기 위해 JSP 파일들의 경로를 설정. -> WebConfig.java 로 설정 이동함.
+#  mvc:
+#    view:
+#      prefix: /WEB-INF/views/
+#      suffix: .jsp
+  servlet:
+    multipart:
+      # 애플리케이션이 받을 수 있는 최대 업로드 용량(100MB)
+      max-file-size: 10000000
+      # 한 사용자가 업로드 수 있는 최대 업로드 용량(10MB)
+      max-request-size: 1000000
+
+mybatis:
+  config-location: classpath:mybatis/mybatis-config.xml
+  mapper-locations: classpath:com/ktdsuniversity/edu/hellospringhomework/**/dao/mapper/*Mapper.xml
+
+
+# Application 전용 설정. (Spring과 관계없음.)
+app:
+  multipart:
+    base-dir: /Users/sinpyungho/Desktop/공부/Kt ds/교재/Java/uploadfiles
+    obfuscation: # 난독화 여부
+      enable: true
+      hide-ext: # 생성자 난독화 여부
+        enable: true
